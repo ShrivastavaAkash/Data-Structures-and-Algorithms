@@ -1,2 +1,4 @@
 # Data-Structures-and-Algorithms
-Collection of code implementation of various data structures and algorithms for problems related to them.
+My Collection of code implementation of various data structures and algorithms for problems related to them.
+
+PS: Other people are welcomed to optimize my implementations or add new implementations to it :)
