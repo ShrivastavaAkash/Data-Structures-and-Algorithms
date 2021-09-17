@@ -1,0 +1,32 @@
+{
+  "name": "data-structures-and-algorithms",
+  "version": "1.0.0",
+  "description": "Some implementations for DSA I found in cracking the coding interview",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShrivastavaAkash/Data-Structures-and-Algorithms.git"
+  },
+  "keywords": [
+    "cracking",
+    "the",
+    "coding",
+    "interview",
+    "DSA"
+  ],
+  "author": "Akash Shrivastava",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShrivastavaAkash/Data-Structures-and-Algorithms/issues"
+  },
+  "homepage": "https://github.com/ShrivastavaAkash/Data-Structures-and-Algorithms#readme",
+  "dependencies": {
+    "jest": "^27.2.0"
+  }
+}

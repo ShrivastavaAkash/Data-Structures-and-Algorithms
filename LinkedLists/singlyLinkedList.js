@@ -1,94 +1,110 @@
-// Linked List Object
-function LinkedList () {
-    var _head = {},
-        _length = {
-            value: 0
-        };
+/**
+ * Singly Linked List
+ */
+class SinglyLinkedList {
+  /**
+   * this.head of the list
+   */
+  head = null;
 
-    function addNode (data) {
-        _length.value++;  // Increment list length
+  /**
+   * this.length of the list
+   */
+  length = {
+    value: 0,
+  };
 
-        // First Insert
-        if(_head.data == undefined) {
-            _head = new Node(data, null);
-            this.head = _head;
-            return _head;
-        }
+  /**
+   * Adds a node to list
+   * @param {any} data data to be stored in the list
+   */
+  add(data) {
+    this.length.value++; // Increment list this.length
 
-        // Thereafter Insertion
-        var n = _head;
-        while(n.next != null) {
-            n = n.next;
-        }
-        n.next = new Node(data, null);
-        return _head;
+    // First Insert
+    if ((this.head || {}).data == undefined) {
+      this.head = new Node(data, null);
+      return this.head;
     }
 
-    function deleteNode (data) {
+    // Thereafter Insertion
+    var n = this.head;
+    while (n.next != null) {
+      n = n.next;
+    }
+    n.next = new Node(data, null);
+    return this.head;
+  }
 
-        if(_head.data == undefined) {
-            console.log("No nodes in the list");
-            return _head;
-        }
-
-        var n = _head;
-
-        // delete HEAD
-        if(n.data == data) {
-            _head = n.next == null ? {} : n.next;
-            _length.value--;
-            return _head;
-        }
-
-        // delete nodes after head
-        while(n.next != null) {
-            if (n.next.data == data) {
-                n.next = n.next.next;
-                _length.value--;
-                return _head;
-            };
-            n = n.next;
-        }
-
-        console.log("Node not found!");
-        return _head;
+  /**
+   * Deletes a node from the list
+   * @param {ant} data data to be deleted from the list
+   */
+  delete(data) {
+    if ((this.head || {}).data == undefined) {
+      console.log("No nodes in the list");
+      return this.head;
     }
 
-    function printList () {
-        
-        if(_head.data == undefined) {
-            console.log("List empty!");
-            return;
-        }
-        
-        var n = _head,
-            str = 'HEAD => ' + n.data + ' => ';
-        
-        while(n.next != null) {
-            n = n.next;
-            str += n.data + " => ";
-        }
-        str += "NULL";
-        console.log(str);
-        return;
+    var n = this.head;
+
+    // delete this.head
+    if (n.data == data) {
+      this.head = n.next;
+      this.length.value--;
+      return this.head;
     }
 
-    return {
-        head: _head,
-        length: _length,
-        add: addNode,
-        delete: deleteNode,
-        print: printList
+    // delete nodes after this.head
+    while (n.next != null) {
+      if (n.next.data == data) {
+        n.next = n.next.next;
+        this.length.value--;
+        return this.head;
+      }
+      n = n.next;
     }
+
+    console.log("Node not found!");
+    return this.head;
+  }
+
+  /**
+   * Prints the list
+   */
+  print() {
+    if ((this.head || {}).data == undefined) {
+      console.log("List empty!");
+      return;
+    }
+
+    var n = this.head,
+      str = "this.head => " + n.data + " => ";
+
+    while (n.next != null) {
+      n = n.next;
+      str += n.data + " => ";
+    }
+    str += "NULL";
+    console.log(str);
+    return;
+  }
 }
 
-// Node Object
-function Node (data, next) {
-    var _nextNode = next,
-        _data = data;
+/**
+ * Node
+ */
+class Node {
+  next;
+  data;
 
-    return {
-        next: _nextNode,
-        data: _data
-    }
+  constructor(data, next) {
+    this.next = next;
+    this.data = data;
+  }
 }
+
+module.exports = {
+  SinglyLinkedList,
+  Node,
+};
